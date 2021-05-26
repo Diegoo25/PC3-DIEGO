@@ -1,0 +1,78 @@
+﻿@model IEnumerable<FIBRACAT.Models.Administrador>
+
+@{
+     ViewData["Title"] = "Administrador";
+}
+
+<h4>DATOS CLIENTE</h4>
+<hr />
+
+
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lugar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NComprador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit" class="btn btn-success btn-sm"></i> CLIENTE</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lugar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NComprador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+            <td>
+               
+                <a asp-action="AddOrEdit" asp-route-id="@item.CID"><i  class="btn btn-primary btn-sm" role="button" aria-pressed="true">Editar</i></a>
+                <a asp-action="Delete" asp-route-id="@item.CID" class="" onclick="return confirm('¿Estas seguroo?')"><i  class="btn btn-danger btn-sm" role="button" aria-pressed="true">Eliminar</i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
